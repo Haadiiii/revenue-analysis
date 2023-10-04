@@ -4,6 +4,7 @@ from schemas.sales import SaleCreate, SaleResponse
 from typing import List
 from models.database import Sale
 from models.database import SessionLocal
+from fastapi import HTTPException
 
 
 app = APIRouter()
@@ -29,4 +30,21 @@ def create_sale(sale: SaleCreate, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(db_sale)
     return db_sale
+
+
+# Update sale
+
+@app.put("/sales/{sale_is}", response_model=SaleResponse)
+def sales_update(sale_id: int, sale: SaleCreate, db: Session = Depends(get_db)):
+    db_sale = db.query(sale).filter(sale.id == sale_id).first()
+    if db_sale is None:
+        raise HTTPException(status_code=404, detail="Sale not found")
+    db_sale.name = sale.name
+    db_sale.price = sale.price
+    db_sale.description = sale.description
+    db.commit()
+    db.refresh(db_sale)
+    return db_sale
+
+
 
