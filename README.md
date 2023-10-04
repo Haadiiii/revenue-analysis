@@ -81,7 +81,7 @@ In order to run this project you need:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/haadiiii/revenue-analysis-api.git
+   git@github.com:Haadiiii/revenue-analysis.git
 
    ```
 
