@@ -372,6 +372,38 @@ Returns a list of all products with low stock (inventory < 10).
 ]
 ```
 
+<!-- Database Documentation:
+● Document the database schema, explaining the purpose of each table and its
+relationships.-->
+
+## Database Schema
+
+- **products**
+
+#### purpose
+
+- Stores information about products.
+
+```sql
+  - id: int
+  - name: string
+  - price: int
+  - inventory: int
+```
+
+- **sales**
+
+#### purpose
+
+- Stores information about sales.
+
+```sql
+  - id: int
+  - product_id: int
+  - quantity: int
+  - date: date
+```
+
 ### DEPENDENCIES
 
 - [FastAPI](https://fastapi.tiangolo.com/)
