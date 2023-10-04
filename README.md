@@ -75,7 +75,6 @@ To run this project, you need:
 - Python 3.8+
 - MySQL Database
 
-### Prerequisites
 
 In order to run this project you need:
 
